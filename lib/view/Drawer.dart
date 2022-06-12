@@ -5,6 +5,7 @@ import 'package:istegelsinfinal/view/GorusveOneriler.dart';
 import 'package:istegelsinfinal/view/Grafik.dart';
 import 'package:istegelsinfinal/view/Loading_screen.dart';
 import 'package:istegelsinfinal/view/LoginPage.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'Sepet.dart';
 
@@ -26,6 +27,23 @@ class _DrawerPageState extends State<DrawerPage> {
     LoadingScreen()
   ];
   int selectedIndex = 0;
+  late String email;
+  late String isim;
+  late String upperName;
+  Future<void> getEmail() async {
+    var sp = await SharedPreferences.getInstance();
+    email = sp.getString("email") ?? "null";
+    var split = email.split("@");
+    isim = split[0].trim();
+    upperName = isim.toUpperCase();
+    setState(() {});
+  }
+
+  @override
+  initState() {
+    super.initState();
+    getEmail();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +56,7 @@ class _DrawerPageState extends State<DrawerPage> {
             DrawerHeader(
                 decoration: BoxDecoration(color: Colors.blueGrey),
                 child: Text(
-                  "Merhaba : Ahmet",
+                  "Merhaba  ${upperName}",
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 30,
