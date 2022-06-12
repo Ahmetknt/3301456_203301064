@@ -3,6 +3,7 @@ import 'package:istegelsinfinal/service/auth_service.dart';
 import 'package:istegelsinfinal/view/Anasayfa.dart';
 import 'package:istegelsinfinal/view/GorusveOneriler.dart';
 import 'package:istegelsinfinal/view/Grafik.dart';
+import 'package:istegelsinfinal/view/Loading_screen.dart';
 import 'package:istegelsinfinal/view/LoginPage.dart';
 
 import 'Sepet.dart';
@@ -21,7 +22,8 @@ class _DrawerPageState extends State<DrawerPage> {
     Sepet.empty(),
     Grafik(),
     GorusveOneriler(),
-    Login()
+    Login(),
+    LoadingScreen()
   ];
   int selectedIndex = 0;
 
@@ -74,6 +76,15 @@ class _DrawerPageState extends State<DrawerPage> {
               onTap: () {
                 setState(() {
                   selectedIndex = 3;
+                });
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              title: Text("Hava Durumu"),
+              onTap: () {
+                setState(() {
+                  selectedIndex = 5;
                 });
                 Navigator.pop(context);
               },

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:istegelsinfinal/items/SepetList.dart';
 import 'package:istegelsinfinal/utils/count.dart';
-import 'package:istegelsinfinal/view/Anasayfa.dart';
+import 'package:istegelsinfinal/view/Drawer.dart';
 
 class Sepet extends StatefulWidget {
   late int adet;
@@ -208,7 +208,7 @@ class _SepetState extends State<Sepet> {
                                       Navigator.push(
                                         context,
                                         MaterialPageRoute(
-                                            builder: (context) => Anasayfa()),
+                                            builder: (context) => DrawerPage()),
                                       );
                                     },
                                     child: const Text("Kapat"),
